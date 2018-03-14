@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "33894887248-a727946djm27oef2iq9jaur92un7sith.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simbirsoft.itplace.efa.huntersnet",
+            "certificate_hash": "382d4a07a4d2617ea2a7c03128a5daf10b0fa0c2"
+          }
+        },
+        {
           "client_id": "33894887248-36ghljivtt60v3ocrqcsdnhco7vu5bpa.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33894887248-36ghljivtt60v3ocrqcsdnhco7vu5bpa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
