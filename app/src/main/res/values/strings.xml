@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">Hunters Net 2.0</string>
+
     <string name="auth_tv_text">Authorization</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="register_tv_text">Create account</string>
     <string name="forgotpassword_tv_text">Forgot Password</string>
     <string name="login_btn_text">Log In</string>
+
+    <string name="ca_tv_text">Create Account</string>
+    <string name="ca_email_hint">Email</string>
+    <string name="ca_password_hint">Password</string>
+    <string name="ca_btn_text">Create Account</string>
+    <string name="ca_displayname_hint" >Display Name</string>
 </resources>
