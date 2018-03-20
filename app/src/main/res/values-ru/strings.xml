@@ -12,4 +12,8 @@
     <string name="ca_password_hint">Пароль</string>
     <string name="ca_btn_text">Зарегистрироваться</string>
     <string name="ca_displayname_hint">Имя пользователя</string>
+    <string name="forgot_password_tv_text">Забыли пароль?</string>
+    <string name="ca_register_tv_text">Регистрация</string>
+    <string name="ca_forgotpassword_tv_text">Забыли пароль?</string>
+    <string name="forgot_password_btn_text">Сбросить текущий пароль</string>
 </resources>

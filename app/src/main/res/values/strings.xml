@@ -12,5 +12,9 @@
     <string name="ca_email_hint">Email</string>
     <string name="ca_password_hint">Password</string>
     <string name="ca_btn_text">Create Account</string>
-    <string name="ca_displayname_hint" >Display Name</string>
+    <string name="ca_displayname_hint">Display Name</string>
+    <string name="ca_register_tv_text">Create Account</string>
+    <string name="ca_forgotpassword_tv_text">Forgot password</string>
+    <string name="forgot_password_tv_text">Forgot password</string>
+    <string name="forgot_password_btn_text">Reset current password</string>
 </resources>
