@@ -21,7 +21,10 @@
     <string name="validateToast_password_enter">Enter password!</string>
     <string name="validateToast_password_short">Password too short, enter minimum 6 characters!</string>
     <string name="validateToast_displayname_enter">Enter User display name!</string>
-    <string name="createAccount_progress_register">Registering user...</string>
-    <string name="emailConfirmation_success">A confirmation letter has been sent to your e-mail address...</string>
-    <string name="emailConfirmation_failed">Failed to send verification email...</string>
+    <string name="createAccount_progress_register">Registering user&#8230;</string>
+    <string name="emailConfirmation_success">A confirmation letter has been sent to your e-mail address&#8230;</string>
+    <string name="emailConfirmation_failed">Failed to send verification email&#8230;</string>
+    <string name="createNewAccount_failed">Authentication failed.</string>
+    <string name="userProfile_created">User profile created!</string>
+    <string name="userProfile_notCreated">User profile not created!</string>
 </resources>

@@ -20,7 +20,10 @@
     <string name="validateToast_password_enter">Введите пароль!</string>
     <string name="validateToast_password_short">Пароль слишком короткий, введите минимум 6 символов!</string>
     <string name="validateToast_displayname_enter">Введите имя пользователя!</string>
-    <string name="createAccount_progress_register">Регистрация пользователя...</string>
-    <string name="emailConfirmation_success">Письмо с подтверждением регистрации выслано на указанный Вами адрес электронной почты...</string>
-    <string name="emailConfirmation_failed">Не удалось отправить письмо с подтверждением регистрации...</string>
+    <string name="createAccount_progress_register">Регистрация пользователя&#8230;</string>
+    <string name="emailConfirmation_success">Письмо с подтверждением регистрации выслано на указанный Вами адрес электронной почты&#8230;</string>
+    <string name="emailConfirmation_failed">Не удалось отправить письмо с подтверждением регистрации&#8230;</string>
+    <string name="createNewAccount_failed">Ошибка аутентификации.</string>
+    <string name="userProfile_created">Профиль пользователя создан!</string>
+    <string name="userProfile_notCreated">Профиль пользователя не создан!</string>
 </resources>
