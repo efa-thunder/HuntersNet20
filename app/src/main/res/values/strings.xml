@@ -17,4 +17,11 @@
     <string name="ca_forgotpassword_tv_text">Forgot password</string>
     <string name="forgot_password_tv_text">Forgot password</string>
     <string name="forgot_password_btn_text">Reset current password</string>
+    <string name="validateToast_email_enter">Enter email address!</string>
+    <string name="validateToast_password_enter">Enter password!</string>
+    <string name="validateToast_password_short">Password too short, enter minimum 6 characters!</string>
+    <string name="validateToast_displayname_enter">Enter User display name!</string>
+    <string name="createAccount_progress_register">Registering user...</string>
+    <string name="emailConfirmation_success">A confirmation letter has been sent to your e-mail address...</string>
+    <string name="emailConfirmation_failed">Failed to send verification email...</string>
 </resources>

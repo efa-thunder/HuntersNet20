@@ -16,4 +16,11 @@
     <string name="ca_register_tv_text">Регистрация</string>
     <string name="ca_forgotpassword_tv_text">Забыли пароль?</string>
     <string name="forgot_password_btn_text">Сбросить текущий пароль</string>
+    <string name="validateToast_email_enter">Введите адрес электронной почты!</string>
+    <string name="validateToast_password_enter">Введите пароль!</string>
+    <string name="validateToast_password_short">Пароль слишком короткий, введите минимум 6 символов!</string>
+    <string name="validateToast_displayname_enter">Введите имя пользователя!</string>
+    <string name="createAccount_progress_register">Регистрация пользователя...</string>
+    <string name="emailConfirmation_success">Письмо с подтверждением регистрации выслано на указанный Вами адрес электронной почты...</string>
+    <string name="emailConfirmation_failed">Не удалось отправить письмо с подтверждением регистрации...</string>
 </resources>
