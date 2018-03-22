@@ -66,24 +66,22 @@ class CreateAccountActivity : AppCompatActivity() {
         password = etPassword?.text.toString().trim()
         displayname = etDisplayName?.text.toString().trim()
 
-        if (!validateCredentials(email!!, password!!, displayname!!)) {
+        if (!validateCredentials(this.email!!, this.password!!, this.displayname!!)) {
             return
         }
 
-        mProgressBar!!.setMessage(R.string.createAccount_progress_register.toString())
+        mProgressBar!!.setMessage(this.resources
+                .getText(R.string.createAccount_progress_register))
         mProgressBar!!.show()
 
-        mAuth!!
-                .createUserWithEmailAndPassword(email!!, password!!)
-                .addOnCompleteListener(this) { task ->
+        mAuth!!.createUserWithEmailAndPassword(email!!, password!!)
+                .addOnCompleteListener { task ->
                     mProgressBar!!.hide()
 
-                    /*
-                     Если регистрация прошла успешно, высылаем письмо для подтверждения регистрации
-                     и переходим на страницу профиля пользователя
-                      */
                     if (task.isSuccessful) {
+                        logd("task.isSuccessful = true..")
                         val userId = mAuth!!.currentUser!!.uid
+                        logd("userId assigned")
                         /*
                         Подтверждение регистрации пользователя
                         Высылаем письмо со ссылкой для подтверждения регистрации аккаунта
@@ -98,27 +96,29 @@ class CreateAccountActivity : AppCompatActivity() {
                         val currentDatabaseUser = mDatabaseReference!!.child(userId)
 
                         val userObject = hashMapOf<String, String>()
-                        userObject.put("display_name", displayname!!)
-                        userObject.put("first_name", "Mick")
-                        userObject.put("last_name", "Dundee")
-                        userObject.put("status", "I'll be back...")
-                        userObject.put("phone_number", "+79510999999")
-                        userObject.put("image", "default")
-                        userObject.put("is_visible", "true")
+                        userObject["display_name"] = displayname!!
+                        userObject["first_name"] = "Mick"
+                        userObject["last_name"] = "Dundee"
+                        userObject["status"] = "I'll be back..."
+                        userObject["phone_number"] = "+79510999999"
+                        userObject["image"] = "default"
+                        userObject["is_visible"] = "true"
 
-                        currentDatabaseUser!!.setValue(userObject).addOnCompleteListener {
-                            taskDatabase: Task<Void> ->
-                                if (taskDatabase.isSuccessful) {
-                                    shorttoast(message = R.string.userProfile_created.toString())
-                                } else {
-                                    shorttoast(message = R.string.userProfile_notCreated.toString())
+                        currentDatabaseUser!!.setValue(userObject)
+                                .addOnCompleteListener { taskDatabase: Task<Void> ->
+                                    if (taskDatabase.isSuccessful) {
+                                        shorttoast(message = this.resources
+                                                .getString(R.string.userProfile_created))
+                                    } else {
+                                        shorttoast(message = this.resources
+                                                .getString(R.string.userProfile_notCreated))
+                                    }
                                 }
-                        }
-                        } else {
-                            // Ошибка аутентификации
-                            logd("createUserWithEmailAndPassword: failed" + task.exception)
-                            shorttoast(message = R.string.createNewAccount_failed.toString())
-                            /*
+                    } else {
+                        logd("task.isSuccessful = false..")
+                        shorttoast(message = this.resources
+                                .getString(R.string.createNewAccount_failed))
+                        /*
                             ПРОДУМАТЬ!
                             Обработка exceptions:
                             1. FirebaseAuthWeakPasswordException если пароль недостаточно сильный
@@ -128,9 +128,7 @@ class CreateAccountActivity : AppCompatActivity() {
                             с указанным адресом электронной почты
                              */
                     }
-
-                    }
-
+                }
     }
 
     /*
@@ -139,15 +137,18 @@ class CreateAccountActivity : AppCompatActivity() {
     в приложении
     */
     private fun verifyRegistration() {
+        logd("Start verifyRegistration fun...")
         val mUser = mAuth!!.currentUser
         mUser!!.sendEmailVerification()
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         logd("verifyRegistration: success")
-                        shorttoast(message = R.string.emailConfirmation_success.toString())
+                        shorttoast(message = this.resources
+                                .getString(R.string.emailConfirmation_success))
                     } else {
-                        logd("verifyRegistration: failed " + task.exception)
-                        shorttoast(message = R.string.emailConfirmation_failed.toString())
+                        logd("verifyRegistration: failed")
+                        shorttoast(message = this.resources
+                                .getString(R.string.emailConfirmation_failed))
                     }
                 }
     }
@@ -156,24 +157,25 @@ class CreateAccountActivity : AppCompatActivity() {
     Валидация введенных данных
      */
     private fun validateCredentials(email: String, password: String, displayname: String): Boolean {
+        logd("Start validateCredentials fun...")
 
         if (TextUtils.isEmpty(email)) {
-            shorttoast(message = R.string.validateToast_email_enter.toString())
+            shorttoast(message = this.resources.getString(R.string.validateToast_email_enter))
             return false
         }
 
         if (TextUtils.isEmpty(password)) {
-            shorttoast(message = R.string.validateToast_password_enter.toString())
+            shorttoast(message = this.resources.getString(R.string.validateToast_password_enter))
             return false
         }
 
         if (TextUtils.isEmpty(displayname)) {
-            shorttoast(message = R.string.validateToast_displayname_enter.toString())
+            shorttoast(message = this.resources.getString(R.string.validateToast_displayname_enter))
             return false
         }
 
         if (password.length < 6) {
-            shorttoast(message = R.string.validateToast_password_short.toString())
+            shorttoast(message = this.resources.getString(R.string.validateToast_password_short))
             return false
         }
 
