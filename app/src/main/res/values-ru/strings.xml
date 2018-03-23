@@ -26,4 +26,7 @@
     <string name="createNewAccount_failed">Ошибка аутентификации.</string>
     <string name="userProfile_created">Профиль пользователя создан!</string>
     <string name="userProfile_notCreated">Профиль пользователя не создан!</string>
+    <string name="fb_auth_exception_weakpassword">Ошибка!!! Слишком слабый пароль (менее 6 символов) для создания новой учетной записи!</string>
+    <string name="fb_auth_exception_usercollision">Ошибка!!! Адрес электронной почты уже используется другой учетной записью!</string>
+    <string name="fb_auth_exception_invalidcredentials">Ошибка!!! Проверьте корректность адреса электронной почты!</string>
 </resources>

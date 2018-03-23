@@ -10,9 +10,11 @@ import android.widget.Button
 import android.widget.ImageView
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.simbirsoft.itplace.efa.huntersnet.utilities.logd
 import com.simbirsoft.itplace.efa.huntersnet.utilities.shorttoast
 
 class CreateAccountActivity : AppCompatActivity() {
@@ -38,7 +40,6 @@ class CreateAccountActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
-        logd("Вызван метод OnCreate()...")
 
         initializeReferences()
     }
@@ -66,6 +67,7 @@ class CreateAccountActivity : AppCompatActivity() {
         password = etPassword?.text.toString().trim()
         displayname = etDisplayName?.text.toString().trim()
 
+        // Валидация введенных данных
         if (!validateCredentials(this.email!!, this.password!!, this.displayname!!)) {
             return
         }
@@ -79,9 +81,8 @@ class CreateAccountActivity : AppCompatActivity() {
                     mProgressBar!!.hide()
 
                     if (task.isSuccessful) {
-                        logd("task.isSuccessful = true..")
+                        // Получаем uid - UserID пользователя проекта Firebase
                         val userId = mAuth!!.currentUser!!.uid
-                        logd("userId assigned")
                         /*
                         Подтверждение регистрации пользователя
                         Высылаем письмо со ссылкой для подтверждения регистрации аккаунта
@@ -90,17 +91,24 @@ class CreateAccountActivity : AppCompatActivity() {
                         verifyRegistration()
 
                         /*
-                        Добавляем дополнительную информацию о профиле пользователя в базу данных
-                         в Users
+                          Добавляем дополнительную информацию о профиле пользователя в базу данных
+                           в Users:
+                             1. display_name - отображаемое имя пользователя (никнейм)
+                             2. first_name   - имя
+                             3. last_name    - фамилия
+                             4. status       - статус пользователя
+                             5. phone_number - номер телефона
+                             6. image        - фотография профиля
+                             7. is_visible   - скрыт ли пользователь (???)
                          */
                         val currentDatabaseUser = mDatabaseReference!!.child(userId)
 
                         val userObject = hashMapOf<String, String>()
                         userObject["display_name"] = displayname!!
-                        userObject["first_name"] = "Mick"
-                        userObject["last_name"] = "Dundee"
-                        userObject["status"] = "I'll be back..."
-                        userObject["phone_number"] = "+79510999999"
+                        userObject["first_name"] = "New"
+                        userObject["last_name"] = "Hunter"
+                        userObject["status"] = "Registering..."
+                        userObject["phone_number"] = "+79990123456"
                         userObject["image"] = "default"
                         userObject["is_visible"] = "true"
 
@@ -115,18 +123,30 @@ class CreateAccountActivity : AppCompatActivity() {
                                     }
                                 }
                     } else {
-                        logd("task.isSuccessful = false..")
-                        shorttoast(message = this.resources
-                                .getString(R.string.createNewAccount_failed))
-                        /*
-                            ПРОДУМАТЬ!
-                            Обработка exceptions:
-                            1. FirebaseAuthWeakPasswordException если пароль недостаточно сильный
-                            2. FirebaseAuthInvalidCredentialsException если адрес электронной почты
-                            неверен
-                            3. FirebaseAuthUserCollisionException если уже существует учетная запись
-                            с указанным адресом электронной почты
-                             */
+
+                        when (task.exception) {
+                            // Обработка исключений: адрес электронной почты уже используется
+                            is FirebaseAuthUserCollisionException -> shorttoast(
+                                    message = this.resources.getString(R.string
+                                            .fb_auth_exception_usercollision)
+                            )
+                            // Обработка исключений: адрес электронной почты не корректен
+                            is FirebaseAuthInvalidCredentialsException -> shorttoast(
+                                    message = this.resources.getString(R.string
+                                            .fb_auth_exception_invalidcredentials)
+                            )
+                            // Обработка исключений: слабый пароль (менее 6 символов)
+                            is FirebaseAuthWeakPasswordException -> shorttoast(
+                                    message = this.resources.getString(R.string
+                                            .fb_auth_exception_weakpassword)
+                            )
+                            // Обработка исключений: иные невозможные исключения
+                            else -> {
+                                shorttoast(message = this.resources
+                                        .getString(R.string.createNewAccount_failed))
+                            }
+                        }
+
                     }
                 }
     }
@@ -137,16 +157,13 @@ class CreateAccountActivity : AppCompatActivity() {
     в приложении
     */
     private fun verifyRegistration() {
-        logd("Start verifyRegistration fun...")
         val mUser = mAuth!!.currentUser
         mUser!!.sendEmailVerification()
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        logd("verifyRegistration: success")
                         shorttoast(message = this.resources
                                 .getString(R.string.emailConfirmation_success))
                     } else {
-                        logd("verifyRegistration: failed")
                         shorttoast(message = this.resources
                                 .getString(R.string.emailConfirmation_failed))
                     }
@@ -157,7 +174,6 @@ class CreateAccountActivity : AppCompatActivity() {
     Валидация введенных данных
      */
     private fun validateCredentials(email: String, password: String, displayname: String): Boolean {
-        logd("Start validateCredentials fun...")
 
         if (TextUtils.isEmpty(email)) {
             shorttoast(message = this.resources.getString(R.string.validateToast_email_enter))

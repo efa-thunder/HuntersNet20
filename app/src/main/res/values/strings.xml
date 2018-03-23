@@ -27,4 +27,7 @@
     <string name="createNewAccount_failed">Authentication failed.</string>
     <string name="userProfile_created">User profile created!</string>
     <string name="userProfile_notCreated">User profile not created!</string>
+    <string name="fb_auth_exception_weakpassword">Error!!! The password is too weak (less than 6 characters) to create a new account!</string>
+    <string name="fb_auth_exception_usercollision">Error!!! The email address is already in use by another account!</string>
+    <string name="fb_auth_exception_invalidcredentials">Error!!! Check the correctness of the email address!</string>
 </resources>
