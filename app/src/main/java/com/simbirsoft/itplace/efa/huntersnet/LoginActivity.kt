@@ -93,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
 
                     if (task.isSuccessful) {
                         //успех
-
+                        gotoUserProfile()
                     } else {
                         //провал
                         /*
@@ -104,6 +104,16 @@ class LoginActivity : AppCompatActivity() {
                          */
                     }
                 }
+    }
+
+    /*
+    Запускаем UserProfileActivity с флагом FLAG_ACTIVITY_CLEAR_TOP
+      (FLAG_ACTIVITY_CLEAR_TOP - изучить более подробно флаги)
+     */
+    private fun gotoUserProfile() {
+        val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
     }
 
     /*
