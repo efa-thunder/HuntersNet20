@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
 import android.support.v7.app.AppCompatActivity
+import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -14,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.simbirsoft.itplace.efa.huntersnet.utilities.logd
+import com.simbirsoft.itplace.efa.huntersnet.utilities.shorttoast
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -42,13 +44,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         initializeReferences()
-
-        register_tv.setOnClickListener {
-            startActivity(Intent(
-                    this,
-                    CreateAccountActivity::class.java
-            ))
-        }
     }
 
     private fun initializeReferences() {
@@ -83,7 +78,55 @@ class LoginActivity : AppCompatActivity() {
         email = etEmail?.text.toString().trim()
         password = etPassword?.text.toString().trim()
 
+        // Валидация введенных данных
+        if (!validateCredentials(this.email!!, this.password!!)) {
+            return
+        }
 
+        mProgressBar!!.setMessage(this.resources.getText(R.string.login_progress))
+        mProgressBar!!.show()
 
+        mAuth!!.signInWithEmailAndPassword(email!!, password!!)
+                .addOnCompleteListener(this) { task ->
+
+                    mProgressBar!!.hide()
+
+                    if (task.isSuccessful) {
+                        //успех
+
+                    } else {
+                        //провал
+                        /*
+                        Exceptions:
+                        1. FirebaseAuthInvalidUserException thrown if the user account
+                        corresponding to email does not exist or has been disabled
+                        2. FirebaseAuthInvalidCredentialsException thrown if the password is wrong
+                         */
+                    }
+                }
     }
+
+    /*
+      Валидация введенных данных
+    */
+    private fun validateCredentials(email: String, password: String): Boolean {
+
+        if (TextUtils.isEmpty(email)) {
+            shorttoast(message = this.resources.getString(R.string.validateToast_email_enter))
+            return false
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            shorttoast(message = this.resources.getString(R.string.validateToast_password_enter))
+            return false
+        }
+
+        if (password.length < 6) {
+            shorttoast(message = this.resources.getString(R.string.validateToast_password_short))
+            return false
+        }
+
+        return true
+    }
+
 }
