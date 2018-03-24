@@ -1,6 +1,7 @@
 package com.simbirsoft.itplace.efa.huntersnet
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TextInputEditText
@@ -122,6 +123,8 @@ class CreateAccountActivity : AppCompatActivity() {
                                                 .getString(R.string.userProfile_notCreated))
                                     }
                                 }
+                        // Переходим на страницу профиля пользователя
+                        gotoUserProfileFromCreateAccountActivity()
                     } else {
 
                         when (task.exception) {
@@ -149,6 +152,14 @@ class CreateAccountActivity : AppCompatActivity() {
 
                     }
                 }
+    }
+
+    // Переходи на UserProfile Activity - Профиль пользователя
+    private fun gotoUserProfileFromCreateAccountActivity() {
+        val intent = Intent (this@CreateAccountActivity,
+                UserProfileActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
     }
 
     /*

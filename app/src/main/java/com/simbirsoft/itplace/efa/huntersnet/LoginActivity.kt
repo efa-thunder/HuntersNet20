@@ -12,6 +12,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.simbirsoft.itplace.efa.huntersnet.utilities.logd
@@ -92,16 +94,24 @@ class LoginActivity : AppCompatActivity() {
                     mProgressBar!!.hide()
 
                     if (task.isSuccessful) {
-                        //успех
-                        gotoUserProfile()
+                        // Переход на UserProfile Activity
+                        gotoUserProfileFromLoginActivity()
                     } else {
-                        //провал
-                        /*
-                        Exceptions:
-                        1. FirebaseAuthInvalidUserException thrown if the user account
-                        corresponding to email does not exist or has been disabled
-                        2. FirebaseAuthInvalidCredentialsException thrown if the password is wrong
-                         */
+                        // Обработка ошибок (исключений) входа полльзователя в систему
+                        when (task.exception) {
+                            is FirebaseAuthInvalidUserException -> shorttoast(
+                                    resources.getString(R.string
+                                            .fb_auth_exception_login_invalid_user)
+                            )
+                            is FirebaseAuthInvalidCredentialsException -> shorttoast(
+                                    resources.getString(R.string
+                                            .fb_auth_exception_login_invalid_credentials)
+                            )
+                            else -> shorttoast(
+                                    resources.getString(R.string
+                                            .fb_auth_exception_login_failed)
+                            )
+                        }
                     }
                 }
     }
@@ -110,7 +120,7 @@ class LoginActivity : AppCompatActivity() {
     Запускаем UserProfileActivity с флагом FLAG_ACTIVITY_CLEAR_TOP
       (FLAG_ACTIVITY_CLEAR_TOP - изучить более подробно флаги)
      */
-    private fun gotoUserProfile() {
+    private fun gotoUserProfileFromLoginActivity() {
         val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)

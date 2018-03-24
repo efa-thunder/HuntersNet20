@@ -30,4 +30,7 @@
     <string name="fb_auth_exception_usercollision">Ошибка!!! Адрес электронной почты уже используется другой учетной записью!</string>
     <string name="fb_auth_exception_invalidcredentials">Ошибка!!! Проверьте корректность адреса электронной почты!</string>
     <string name="login_progress">Вход пользователя&#8230;</string>
+    <string name="fb_auth_exception_login_invalid_user">Учётная запись пользователя не существует или была отключена.</string>
+    <string name="fb_auth_exception_login_invalid_credentials">Неверный пароль!!!</string>
+    <string name="fb_auth_exception_login_failed">Ошибка входа в систему!</string>
 </resources>

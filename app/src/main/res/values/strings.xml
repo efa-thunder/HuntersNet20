@@ -31,4 +31,7 @@
     <string name="fb_auth_exception_usercollision">Error!!! The email address is already in use by another account!</string>
     <string name="fb_auth_exception_invalidcredentials">Error!!! Check the correctness of the email address!</string>
     <string name="login_progress">Logging in user&#8230;</string>
+    <string name="fb_auth_exception_login_invalid_user">The user account does not exist or has been disabled.</string>
+    <string name="fb_auth_exception_login_invalid_credentials">Password is wrong!!!</string>
+    <string name="fb_auth_exception_login_failed">Logging in failed!!!</string>
 </resources>
