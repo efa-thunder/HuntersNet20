@@ -97,7 +97,7 @@ class LoginActivity : AppCompatActivity() {
                         // Переход на UserProfile Activity
                         gotoUserProfileFromLoginActivity()
                     } else {
-                        // Обработка ошибок (исключений) входа полльзователя в систему
+                        // Обработка ошибок (исключений) входа пользователя в систему
                         when (task.exception) {
                             is FirebaseAuthInvalidUserException -> shorttoast(
                                     resources.getString(R.string
