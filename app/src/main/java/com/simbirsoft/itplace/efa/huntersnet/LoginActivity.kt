@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 // import com.google.firebase.database.FirebaseDatabase
 import com.simbirsoft.itplace.efa.huntersnet.utilities.logd
 import com.simbirsoft.itplace.efa.huntersnet.utilities.shorttoast
+import com.simbirsoft.itplace.efa.huntersnet.userprofile.ui.activity.CurrentUserProfileActivity
 // import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -124,7 +125,7 @@ class LoginActivity : AppCompatActivity() {
       (FLAG_ACTIVITY_CLEAR_TOP - изучить более подробно флаги)
      */
     private fun gotoUserProfileFromLoginActivity() {
-        val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
+        val intent = Intent(this@LoginActivity, CurrentUserProfileActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }
