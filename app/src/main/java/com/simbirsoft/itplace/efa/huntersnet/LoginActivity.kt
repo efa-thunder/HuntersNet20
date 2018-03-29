@@ -13,12 +13,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthInvalidUserException
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+// import com.google.firebase.auth.FirebaseAuthInvalidUserException
+// import com.google.firebase.database.DatabaseReference
+// import com.google.firebase.database.FirebaseDatabase
 import com.simbirsoft.itplace.efa.huntersnet.utilities.logd
 import com.simbirsoft.itplace.efa.huntersnet.utilities.shorttoast
-import kotlinx.android.synthetic.main.activity_login.*
+// import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -99,10 +99,13 @@ class LoginActivity : AppCompatActivity() {
                     } else {
                         // Обработка ошибок (исключений) входа пользователя в систему
                         when (task.exception) {
+                            /*
+                            РАЗОБРАТЬСЯ deprecated ли?
                             is FirebaseAuthInvalidUserException -> shorttoast(
                                     resources.getString(R.string
                                             .fb_auth_exception_login_invalid_user)
                             )
+                            */
                             is FirebaseAuthInvalidCredentialsException -> shorttoast(
                                     resources.getString(R.string
                                             .fb_auth_exception_login_invalid_credentials)
