@@ -2,21 +2,76 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profileCL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".userprofile.ui.activity.CurrentUserProfileActivity">
 
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/currentUserToolBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/hunternetLogin"
-        android:minHeight="56dp"
-        android:theme="@style/AppTheme"
+    <ImageView
+        android:id="@+id/title_imageView"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_arrow_back" />
+        app:srcCompat="@color/hunternetCL_login" />
+
+    <ImageView
+        android:id="@+id/arrow_back_toMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_back" />
+
+    <TextView
+        android:id="@+id/profile_tv"
+        android:layout_width="188dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/profile_tv_text"
+        android:textColor="@color/hunternet_textcolor"
+        android:textSize="18sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/arrow_back_toMap"
+        app:layout_constraintStart_toEndOf="@+id/arrow_back_toMap"
+        app:layout_constraintTop_toTopOf="@+id/arrow_back_toMap"
+        tools:text="@string/profile_tv_text" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/currentUserProfileImage"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/default_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title_imageView" />
+
+    <TextView
+        android:id="@+id/profiletv"
+        android:layout_width="320dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="208dp"
+        android:fontFamily="@font/roboto_medium"
+        android:lineSpacingExtra="24sp"
+        android:text="@string/display_name_profile_tv_text"
+        android:textAlignment="center"
+        android:textColor="@color/hunternet_textcolor"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/display_name_profile_tv_text" />
+
 </android.support.constraint.ConstraintLayout>

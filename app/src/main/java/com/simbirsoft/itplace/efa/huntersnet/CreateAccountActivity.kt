@@ -100,7 +100,6 @@ class CreateAccountActivity : AppCompatActivity() {
                              4. status       - статус пользователя
                              5. phone_number - номер телефона
                              6. image        - фотография профиля
-                             7. is_visible   - скрыт ли пользователь (???)
                          */
                         val currentDatabaseUser = mDatabaseReference!!.child(userId)
 
@@ -111,7 +110,6 @@ class CreateAccountActivity : AppCompatActivity() {
                         userObject["status"] = "Registering..."
                         userObject["phone_number"] = "+79990123456"
                         userObject["image"] = "default"
-                        userObject["is_visible"] = "true"
 
                         currentDatabaseUser!!.setValue(userObject)
                                 .addOnCompleteListener { taskDatabase: Task<Void> ->

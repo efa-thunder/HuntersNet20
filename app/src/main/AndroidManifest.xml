@@ -20,6 +20,10 @@ package="com.simbirsoft.itplace.efa.huntersnet">
     <activity android:name=".ForgotPasswordActivity" />
     <activity android:name=".UserProfileActivity"></activity>
     <activity android:name=".userprofile.ui.activity.CurrentUserProfileActivity" />
+
+    <meta-data
+        android:name="preloaded_fonts"
+        android:resource="@array/preloaded_fonts" />
 </application>
 
 </manifest>

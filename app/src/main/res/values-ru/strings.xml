@@ -33,4 +33,6 @@
     <string name="fb_auth_exception_login_invalid_user">Учётная запись пользователя не существует или была отключена.</string>
     <string name="fb_auth_exception_login_invalid_credentials">Неверный пароль!!!</string>
     <string name="fb_auth_exception_login_failed">Ошибка входа в систему!</string>
+    <string name="profile_tv_text">Профиль</string>
+    <string name="display_name_profile_tv_text">Имя пользователя</string>
 </resources>

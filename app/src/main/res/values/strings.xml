@@ -34,4 +34,6 @@
     <string name="fb_auth_exception_login_invalid_user">The user account does not exist or has been disabled.</string>
     <string name="fb_auth_exception_login_invalid_credentials">Password is wrong!!!</string>
     <string name="fb_auth_exception_login_failed">Logging in failed!!!</string>
+    <string name="profile_tv_text">Profile</string>
+    <string name="display_name_profile_tv_text">Display Name</string>
 </resources>
