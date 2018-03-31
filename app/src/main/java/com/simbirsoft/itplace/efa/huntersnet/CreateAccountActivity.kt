@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.simbirsoft.itplace.efa.huntersnet.userprofile.ui.activity.CurrentUserProfileActivity
 import com.simbirsoft.itplace.efa.huntersnet.utilities.shorttoast
 
 class CreateAccountActivity : AppCompatActivity() {
@@ -156,7 +157,7 @@ class CreateAccountActivity : AppCompatActivity() {
     // Переходи на UserProfile Activity - Профиль пользователя
     private fun gotoUserProfileFromCreateAccountActivity() {
         val intent = Intent (this@CreateAccountActivity,
-                UserProfileActivity::class.java)
+                CurrentUserProfileActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }
