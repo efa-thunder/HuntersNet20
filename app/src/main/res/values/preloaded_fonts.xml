@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
-        <item>@font/arimo</item>
-        <item>@font/artifika</item>
+        <item>@font/fira_sans_condensed_extrabold</item>
+        <item>@font/fira_sans_extra_condensed_bold</item>
+        <item>@font/fira_sans_extra_condensed_medium_italic</item>
+        <item>@font/roboto</item>
         <item>@font/roboto_medium</item>
+        <item>@font/roboto_mono_light_italic</item>
     </array>
 </resources>

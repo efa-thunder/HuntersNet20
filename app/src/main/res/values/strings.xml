@@ -36,4 +36,15 @@
     <string name="fb_auth_exception_login_failed">Logging in failed!!!</string>
     <string name="profile_tv_text">Profile</string>
     <string name="display_name_profile_tv_text">Display Name</string>
+    <string name="status_profile_tv_text">User Status</string>
+    <string name="edit_profile_tv_text">Edit profile</string>
+    <string name="phone_profile_tv" >+7 999 012 34 56</string>
+    <string name="email_profile_tv_text">user@email.me</string>
+    <string name="firstname_tv_text">John</string>
+    <string name="lastname_tv_text">Doe</string>
+    <string name="onlyfordebug_tv">For Debug:</string>
+    <string name="fb_uid_tv_text">Firebase UID:</string>
+    <string name="fb_verified_tv_text">User Verified:</string>
+    <string name="verified_tv_text">Verified?</string>
+    <string name="fb_uid_text">UID</string>
 </resources>

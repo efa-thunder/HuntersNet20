@@ -35,4 +35,15 @@
     <string name="fb_auth_exception_login_failed">Ошибка входа в систему!</string>
     <string name="profile_tv_text">Профиль</string>
     <string name="display_name_profile_tv_text">Имя пользователя</string>
+    <string name="status_profile_tv_text">Статус пользователя</string>
+    <string name="edit_profile_tv_text">Редактировать</string>
+    <string name="phone_profile_tv">+7 999 012 34 56</string>
+    <string name="firstname_tv_text">Иван</string>
+    <string name="lastname_tv_text">Иванов</string>
+    <string name="email_profile_tv_text">user@email.me</string>
+    <string name="onlyfordebug_tv">"Для тестирования: "</string>
+    <string name="fb_uid_tv_text">ID пользователя:</string>
+    <string name="fb_verified_tv_text">Подтверждение адреса:</string>
+    <string name="verified_tv_text">Подтверждён?</string>
+    <string name="fb_uid_text">UID</string>
 </resources>

@@ -20,21 +20,21 @@
 
     <ImageView
         android:id="@+id/arrow_back_toMap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_arrow_back" />
+        app:srcCompat="@drawable/ic_arrow_back_grey" />
 
     <TextView
         android:id="@+id/profile_tv"
         android:layout_width="188dp"
         android:layout_height="24dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/profile_tv_text"
@@ -52,16 +52,17 @@
         android:layout_height="88dp"
         android:layout_marginTop="104dp"
         android:background="@drawable/default_profile"
+        android:contentDescription="@string/display_name_profile_tv_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/title_imageView" />
 
     <TextView
-        android:id="@+id/profiletv"
-        android:layout_width="320dp"
+        android:id="@+id/display_name_profile_tv"
+        android:layout_width="340dp"
         android:layout_height="34dp"
         android:layout_marginTop="208dp"
-        android:fontFamily="@font/roboto_medium"
+        android:fontFamily="@font/fira_sans_condensed_extrabold"
         android:lineSpacingExtra="24sp"
         android:text="@string/display_name_profile_tv_text"
         android:textAlignment="center"
@@ -73,5 +74,189 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/display_name_profile_tv_text" />
+
+    <TextView
+        android:id="@+id/status_profile_tv"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fira_sans_extra_condensed_medium_italic"
+        android:lineSpacingExtra="12sp"
+        android:text="@string/status_profile_tv_text"
+        android:textAlignment="center"
+        android:textColor="@color/hunternet_textcolor"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/display_name_profile_tv"
+        tools:text="@string/status_profile_tv_text" />
+
+    <TextView
+        android:id="@+id/edit_profile_tv"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/edit_profile_tv_text"
+        android:textAlignment="center"
+        android:textColor="@color/hunter_net_actions_text_view"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status_profile_tv" />
+
+    <ImageView
+        android:id="@+id/phone_iv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="104dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_tv"
+        app:srcCompat="@drawable/ic_account_phone" />
+
+    <TextView
+        android:id="@+id/profile_phone_tv"
+        android:layout_width="210dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="104dp"
+        android:fontFamily="@font/roboto_medium"
+        android:lineSpacingExtra="24sp"
+        android:text="@string/phone_profile_tv"
+        android:textAlignment="viewStart"
+        android:textColor="@color/hunternet_textcolor"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/phone_iv"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_tv"
+        tools:text="@string/phone_profile_tv" />
+
+    <ImageView
+        android:id="@+id/email_iv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_iv"
+        app:srcCompat="@drawable/ic_account_email" />
+
+    <TextView
+        android:id="@+id/profile_email_tv"
+        android:layout_width="210dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto_medium"
+        android:lineSpacingExtra="24sp"
+        android:text="@string/email_profile_tv_text"
+        android:textAlignment="viewStart"
+        android:textColor="@color/hunternet_textcolor"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/email_iv"
+        app:layout_constraintTop_toBottomOf="@+id/profile_phone_tv"
+        tools:text="@string/email_profile_tv_text" />
+
+    <TextView
+        android:id="@+id/firstname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/fira_sans_extra_condensed_bold"
+        android:lineSpacingExtra="24sp"
+        android:text="@string/firstname_tv_text"
+        android:textColor="@color/hunternet_textcolor"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/lastname_tv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_tv"
+        tools:text="@string/firstname_tv_text" />
+
+    <TextView
+        android:id="@+id/lastname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/fira_sans_extra_condensed_bold"
+        android:lineSpacingExtra="24sp"
+        android:text="@string/lastname_tv_text"
+        android:textColor="@color/hunternet_textcolor"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/firstname_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/firstname_tv"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_tv" />
+
+    <TextView
+        android:id="@+id/fordebug_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/roboto_mono_light_italic"
+        android:text="@string/onlyfordebug_tv"
+        android:textColor="@color/hunternet_textcolor"
+        android:textSize="12sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_iv"
+        tools:text="@string/onlyfordebug_tv" />
+
+    <TextView
+        android:id="@+id/fb_verified_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_mono_light_italic"
+        android:text="@string/fb_verified_tv_text"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fordebug_tv" />
+
+    <TextView
+        android:id="@+id/fb_uid_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_mono_light_italic"
+        android:text="@string/fb_uid_tv_text"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fb_verified_tv" />
+
+    <TextView
+        android:id="@+id/verified_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/roboto_mono_light_italic"
+        android:text="@string/verified_tv_text"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/fb_verified_tv"
+        app:layout_constraintStart_toEndOf="@+id/fordebug_tv" />
+
+    <TextView
+        android:id="@+id/uid_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_mono_light_italic"
+        android:text="@string/fb_uid_text"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/fb_uid_tv"
+        app:layout_constraintStart_toStartOf="@+id/verified_tv" />
 
 </android.support.constraint.ConstraintLayout>

@@ -8,5 +8,6 @@
     <color name="hunternetCL_login">#ffffff</color>
     <color name="hunternet_textcolor">#4c4c4c</color>
     <color name="hunternet_button_correct">#7bcb57</color>
+    <color name="hunter_net_actions_text_view">#a0a0a0</color>
 
 </resources>

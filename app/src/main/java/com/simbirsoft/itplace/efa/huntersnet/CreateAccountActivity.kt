@@ -110,6 +110,7 @@ class CreateAccountActivity : AppCompatActivity() {
                         userObject["status"] = "Registering..."
                         userObject["phone_number"] = "+79990123456"
                         userObject["image"] = "default"
+                        userObject["thumb_image"] = "default"
 
                         currentDatabaseUser!!.setValue(userObject)
                                 .addOnCompleteListener { taskDatabase: Task<Void> ->
