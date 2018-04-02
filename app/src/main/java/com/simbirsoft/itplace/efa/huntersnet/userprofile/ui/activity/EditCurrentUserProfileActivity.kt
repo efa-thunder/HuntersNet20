@@ -2,7 +2,6 @@ package com.simbirsoft.itplace.efa.huntersnet.userprofile.ui.activity
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
