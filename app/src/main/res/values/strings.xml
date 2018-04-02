@@ -38,7 +38,7 @@
     <string name="display_name_profile_tv_text">Display Name</string>
     <string name="status_profile_tv_text">User Status</string>
     <string name="edit_profile_tv_text">Edit profile</string>
-    <string name="phone_profile_tv" >+7 999 012 34 56</string>
+    <string name="phone_profile_tv">+7 999 012 34 56</string>
     <string name="email_profile_tv_text">user@email.me</string>
     <string name="firstname_tv_text">John</string>
     <string name="lastname_tv_text">Doe</string>

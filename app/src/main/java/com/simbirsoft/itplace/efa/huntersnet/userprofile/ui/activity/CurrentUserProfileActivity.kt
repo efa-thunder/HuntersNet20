@@ -61,35 +61,35 @@ class CurrentUserProfileActivity : MvpAppCompatActivity(), CurrentUserProfileVie
     }
 
     override fun showDisplayName(keyValue: String) {
-        tvDisplayName?.setText(keyValue)
+        tvDisplayName?.text = keyValue
     }
 
     override fun showStatus(keyValue: String) {
-        tvStatus?.setText(keyValue)
+        tvStatus?.text = keyValue
     }
 
     override fun showFirstName(keyValue: String) {
-        tvFirstName?.setText(keyValue)
+        tvFirstName?.text = keyValue
     }
 
     override fun showLastName(keyValue: String) {
-        tvLastName?.setText(keyValue)
+        tvLastName?.text = keyValue
     }
 
     override fun showEmail(keyValue: String) {
-        tvEmail?.setText(keyValue)
+        tvEmail?.text = keyValue
     }
 
     override fun showPhoneNumber(keyValue: String) {
-        tvPhoneNumber?.setText(keyValue)
+        tvPhoneNumber?.text = keyValue
     }
 
     override fun showUserID(keyValue: String) {
-        tvUserId?.setText(keyValue)
+        tvUserId?.text = keyValue
     }
 
     override fun showVerification(keyValue: String) {
-        tvVerified?.setText(keyValue)
+        tvVerified?.text = keyValue
     }
 
 }

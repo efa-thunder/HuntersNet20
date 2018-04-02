@@ -6,7 +6,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.simbirsoft.itplace.efa.huntersnet.userprofile.presentation.view.CurrentUserProfileView
-// import com.simbirsoft.itplace.efa.huntersnet.models.User
 
 @InjectViewState
 class CurrentUserProfilePresenter : MvpPresenter<CurrentUserProfileView>() {
@@ -53,12 +52,12 @@ class CurrentUserProfilePresenter : MvpPresenter<CurrentUserProfileView>() {
                         mVerified = currentAppUser.isEmailVerified.toString()
 
                         mDisplayName = dataSnapshot!!.child("display_name").value as String
-                        mFirstName = dataSnapshot!!.child("first_name").value as String
-                        mLastName = dataSnapshot!!.child("last_name").value as String
-                        mStatus = dataSnapshot!!.child("status").value as String
-                        mImage = dataSnapshot!!.child("image").value as String
-                        mThumbImage = dataSnapshot!!.child("thumb_image").value as String
-                        mPhone = dataSnapshot!!.child("phone_number").value as String
+                        mFirstName = dataSnapshot.child("first_name").value as String
+                        mLastName = dataSnapshot.child("last_name").value as String
+                        mStatus = dataSnapshot.child("status").value as String
+                        mImage = dataSnapshot.child("image").value as String
+                        mThumbImage = dataSnapshot.child("thumb_image").value as String
+                        mPhone = dataSnapshot.child("phone_number").value as String
 
                         viewState.showDisplayName(keyValue = mDisplayName!!)
                         viewState.showFirstName(keyValue = mFirstName!!)
