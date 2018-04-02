@@ -6,7 +6,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.simbirsoft.itplace.efa.huntersnet.userprofile.presentation.view.CurrentUserProfileView
-import com.simbirsoft.itplace.efa.huntersnet.models.User
+// import com.simbirsoft.itplace.efa.huntersnet.models.User
 
 @InjectViewState
 class CurrentUserProfilePresenter : MvpPresenter<CurrentUserProfileView>() {
@@ -19,6 +19,7 @@ class CurrentUserProfilePresenter : MvpPresenter<CurrentUserProfileView>() {
     private var mStatus: String? = null
     private var mImage: String? = null
     private var mThumbImage: String? = null
+    private var mPhone: String? = null
 
     private var mEmail: String? = null
     private var mUserID: String? = null
@@ -42,27 +43,28 @@ class CurrentUserProfilePresenter : MvpPresenter<CurrentUserProfileView>() {
     }
 
     private fun onGetCurrentUserData(currentAppUser: FirebaseUser) {
-
-        mEmail = currentAppUser.email
-        mUserID = currentAppUser.uid
-        mVerified = currentAppUser.isEmailVerified.toString()
-
         mDatabaseReference!!.child(currentAppUser.uid)
                 .addValueEventListener(object : ValueEventListener {
 
                     override fun onDataChange(dataSnapshot: DataSnapshot?) {
-                        val userProfileData = dataSnapshot?.getValue(User::class.java)
-                        mDisplayName = userProfileData?.displayname as String
-                        mFirstName = userProfileData?.firstname as String
-                        mLastName = userProfileData?.lastname as String
-                        mStatus = userProfileData?.status as String
-                        mImage = userProfileData?.image as String
-                        mThumbImage = userProfileData?.thumbimage as String
+
+                        mEmail = currentAppUser.email
+                        mUserID = currentAppUser.uid
+                        mVerified = currentAppUser.isEmailVerified.toString()
+
+                        mDisplayName = dataSnapshot!!.child("display_name").value as String
+                        mFirstName = dataSnapshot!!.child("first_name").value as String
+                        mLastName = dataSnapshot!!.child("last_name").value as String
+                        mStatus = dataSnapshot!!.child("status").value as String
+                        mImage = dataSnapshot!!.child("image").value as String
+                        mThumbImage = dataSnapshot!!.child("thumb_image").value as String
+                        mPhone = dataSnapshot!!.child("phone_number").value as String
 
                         viewState.showDisplayName(keyValue = mDisplayName!!)
                         viewState.showFirstName(keyValue = mFirstName!!)
                         viewState.showLastName(keyValue = mLastName!!)
                         viewState.showStatus(keyValue = mStatus!!)
+                        viewState.showPhoneNumber(keyValue = mPhone!!)
                         viewState.showEmail(keyValue = mEmail!!)
                         viewState.showUserID(keyValue = mUserID!!)
                         viewState.showVerification(keyValue = mVerified!!)
@@ -80,7 +82,7 @@ class CurrentUserProfilePresenter : MvpPresenter<CurrentUserProfileView>() {
         mDatabaseReference = mDatabase!!.reference!!.child("Users")
     }
 
-    fun init() {
+    /*fun init() {
         viewState.showDisplayName(keyValue = mDisplayName!!)
         viewState.showFirstName(keyValue = mFirstName!!)
         viewState.showLastName(keyValue = mLastName!!)
@@ -88,6 +90,6 @@ class CurrentUserProfilePresenter : MvpPresenter<CurrentUserProfileView>() {
         viewState.showEmail(keyValue = mEmail!!)
         viewState.showUserID(keyValue = mUserID!!)
         viewState.showVerification(keyValue = mVerified!!)
-    }
+    }*/
 
 }

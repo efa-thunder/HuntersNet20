@@ -11,6 +11,7 @@ import com.simbirsoft.itplace.efa.huntersnet.userprofile.presentation.view.Curre
 import com.simbirsoft.itplace.efa.huntersnet.userprofile.presentation.presenter.CurrentUserProfilePresenter
 
 import com.arellomobile.mvp.MvpAppCompatActivity
+import com.arellomobile.mvp.presenter.PresenterType
 import com.simbirsoft.itplace.efa.huntersnet.LoginActivity
 import com.simbirsoft.itplace.efa.huntersnet.R
 
@@ -31,7 +32,7 @@ class CurrentUserProfileActivity : MvpAppCompatActivity(), CurrentUserProfileVie
     private var tvUserId: TextView? = null
     private var tvVerified: TextView? = null
 
-    @InjectPresenter
+    @InjectPresenter(type = PresenterType.LOCAL)
     lateinit var mCurrentUserProfilePresenter: CurrentUserProfilePresenter
 
 
@@ -40,7 +41,7 @@ class CurrentUserProfileActivity : MvpAppCompatActivity(), CurrentUserProfileVie
         setContentView(R.layout.activity_current_user_profile)
 
         initializeUI()
-        mCurrentUserProfilePresenter.init()
+        // mCurrentUserProfilePresenter.init()
     }
 
     private fun initializeUI() {
