@@ -4,6 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".userprofile.ui.activity.EditCurrentUserProfileActivity">
+
+    <include
+        android:id="@+id/editprofile_toolbar"
+        layout="@layout/hn_toolbar"
+        />
+
+    <ImageView
+        android:id="@+id/usertitle_iv"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/hunternetCL_login" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/userProfileImage"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/default_profile"
+        android:contentDescription="@string/display_name_profile_tv_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

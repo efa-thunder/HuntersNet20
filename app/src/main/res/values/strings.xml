@@ -47,4 +47,5 @@
     <string name="fb_verified_tv_text">User Verified:</string>
     <string name="verified_tv_text">Verified?</string>
     <string name="fb_uid_text">UID</string>
+    <string name="editprofile_toolbar_text">Edit</string>
 </resources>

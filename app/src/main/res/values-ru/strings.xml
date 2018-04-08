@@ -46,4 +46,5 @@
     <string name="fb_verified_tv_text">Подтверждение адреса:</string>
     <string name="verified_tv_text">Подтверждён?</string>
     <string name="fb_uid_text">UID</string>
+    <string name="editprofile_toolbar_text">Редактировать</string>
 </resources>

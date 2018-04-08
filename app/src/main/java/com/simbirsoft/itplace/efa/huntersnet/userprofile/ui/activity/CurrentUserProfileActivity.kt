@@ -14,6 +14,7 @@ import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.PresenterType
 import com.simbirsoft.itplace.efa.huntersnet.LoginActivity
 import com.simbirsoft.itplace.efa.huntersnet.R
+import kotlinx.android.synthetic.main.activity_current_user_profile.*
 
 
 class CurrentUserProfileActivity : MvpAppCompatActivity(), CurrentUserProfileView {
@@ -42,6 +43,17 @@ class CurrentUserProfileActivity : MvpAppCompatActivity(), CurrentUserProfileVie
 
         initializeUI()
         // mCurrentUserProfilePresenter.init()
+        edit_profile_tv.setOnClickListener {
+            goToEditProfile()
+        }
+
+    }
+
+    private fun goToEditProfile() {
+        val intent = Intent (this@CurrentUserProfileActivity,
+                EditCurrentUserProfileActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
     }
 
     private fun initializeUI() {
